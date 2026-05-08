@@ -1008,7 +1008,7 @@
                 <span class="contact-icon">📧</span>
                 hassan.hossam123a@gmail.com
               </a>
-              <a href="www.linkedin.com/in/hassan-hossam-584b6a27b" target="_blank" class="contact-link">
+              <a href="https://www.linkedin.com/in/hassan-hossam-584b6a27b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-link">
                 <span class="contact-icon">💼</span>
                 linkedin.com/in/hassanhossam
               </a>
@@ -1115,98 +1115,4 @@
 
   /* ========================================================
      TYPEWRITER
-  ======================================================== */
-  const phrases = ['Data Analyst'];
-  let pi = 0, ci = 0, isDeleting = false;
-  const typedEl = document.getElementById('typed-text');
-
-  function type() {
-    const current = phrases[pi];
-    if (!isDeleting) {
-      typedEl.textContent = current.slice(0, ci + 1);
-      ci++;
-      if (ci === current.length) { isDeleting = true; setTimeout(type, 1800); return; }
-      setTimeout(type, 85);
-    } else {
-      typedEl.textContent = current.slice(0, ci - 1);
-      ci--;
-      if (ci === 0) { isDeleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
-      setTimeout(type, 45);
-    }
-  }
-  setTimeout(type, 1200);
-
-  /* ========================================================
-     NAVBAR
-  ======================================================== */
-  const navbar  = document.querySelector('.navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
-
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 140) current = s.id;
-    });
-    navLinks.forEach(l => {
-      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
-    });
-  }, { passive: true });
-
-  /* ========================================================
-     SCROLL REVEAL
-  ======================================================== */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach(el => revealObserver.observe(el));
-
-  /* ========================================================
-     COUNTER ANIMATION
-  ======================================================== */
-  const counters = document.querySelectorAll('[data-target]');
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const el = e.target;
-        const target = +el.dataset.target;
-        const duration = 1400;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.floor(current);
-          if (current >= target) clearInterval(timer);
-        }, 16);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  counters.forEach(c => counterObserver.observe(c));
-
-  /* ========================================================
-     DARK / LIGHT TOGGLE
-  ======================================================== */
-  const toggleBtn = document.getElementById('theme-toggle');
-
-  toggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.dataset.theme === 'dark';
-    document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
-    toggleBtn.textContent = isDark ? '☀️' : '🌙';
-  });
-  </script>
-
-</body>
-</html>
+  ===================================
